@@ -12,6 +12,13 @@ const decrementCounter = state => {
   return { ...state, data: state.data - 1 };
 };
 
+
+export default createReducer(initialState, {
+  [INCREMENT_COUNTER]: incrementCounter,
+  [DECREMENT_COUNTER]: decrementCounter
+});
+
+
 // const testReducer = (state = initialState, action) => {
 //   switch (action.type) {
 //     case INCREMENT_COUNTER:
@@ -22,8 +29,3 @@ const decrementCounter = state => {
 //       return state;
 //   }
 // };
-
-export default createReducer(initialState, {
-  [INCREMENT_COUNTER]: incrementCounter,
-  [DECREMENT_COUNTER]: decrementCounter
-});

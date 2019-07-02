@@ -1,10 +1,9 @@
-import React from "react";
-import { Segment } from "semantic-ui-react";
-import { Grid } from "semantic-ui-react";
-import { Icon } from "semantic-ui-react";
-import { Button } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Segment, Grid, Icon, Button } from "semantic-ui-react";
+import EventDetailedMap from "./EventDetailedMap";
 
 const EventDetailedInfo = ({ event }) => {
+  const [isMapOpen, showMapToggle] = useState(false);
   return (
     <Segment.Group>
       <Segment attached="top">
@@ -23,7 +22,7 @@ const EventDetailedInfo = ({ event }) => {
             <Icon name="calendar" size="large" color="teal" />
           </Grid.Column>
           <Grid.Column width={15}>
-            <span>{event.date}</span>
+            <span>{event.date.toString()}</span>
           </Grid.Column>
         </Grid>
       </Segment>
@@ -36,10 +35,21 @@ const EventDetailedInfo = ({ event }) => {
             <span>{event.venue}</span>
           </Grid.Column>
           <Grid.Column width={4}>
-            <Button color="teal" size="tiny" content="Show Map" />
+            <Button
+              onClick={() => showMapToggle(!isMapOpen)}
+              color="teal"
+              size="tiny"
+              content={isMapOpen ? "Hide Map" : "Show Map"}
+            />
           </Grid.Column>
         </Grid>
       </Segment>
+      {isMapOpen && (
+        <EventDetailedMap
+          lat={event.venueLatLng.lat}
+          lng={event.venueLatLng.lng}
+        />
+      )}
     </Segment.Group>
   );
 };
