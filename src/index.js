@@ -7,12 +7,12 @@ import ReduxToastr from "react-redux-toastr";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./app/common/util/ScrollToTop";
-import { loadEvents } from "./features/event/eventActions";
+//import { loadEvents } from "./features/event/eventActions";
 import { configureStore } from "./app/store/configuredStore";
 import "react-redux-toastr/lib/css/react-redux-toastr.min.css";
 
 const store = configureStore();
-store.dispatch(loadEvents());
+//store.dispatch(loadEvents());
 
 ReactDOM.render(
   <Provider store={store}>
