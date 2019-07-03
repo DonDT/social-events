@@ -4,6 +4,7 @@ import EventList from "../EventList/EventList";
 import { connect } from "react-redux";
 import { createEvent, deleteEvent, updateEvent } from "../eventActions";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
+import EventActivity from "../EventActivity/EventActivity";
 
 const mapState = state => ({
   events: state.events,
@@ -122,7 +123,7 @@ class Eventdashboard extends Component {
               createEvent={this.handleCreateEvent}
             />
           )} */}
-          <h2>Activity Feed</h2>
+          <EventActivity />{" "}
         </Grid.Column>
       </Grid>
     );
