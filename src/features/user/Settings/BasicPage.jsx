@@ -5,7 +5,9 @@ import DateInput from "../../../app/common/form/DateInput";
 import PlaceInput from "../../../app/common/form/PlaceInput";
 import TextInput from "../../../app/common/form/TextInput";
 import RadioInput from "../../../app/common/form/RadioInput";
-import { addYears } from "date-fns/esm";
+import { addYears } from "date-fns";
+
+//import { addYears } from "date-fns/esm";
 
 class BasicPage extends Component {
   render() {
