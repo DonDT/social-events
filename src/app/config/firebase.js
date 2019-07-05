@@ -9,7 +9,7 @@ const firebaseConfig = {
   authDomain: "revents-ef039.firebaseapp.com",
   databaseURL: "https://revents-ef039.firebaseio.com",
   projectId: "revents-ef039",
-  storageBucket: "",
+  storageBucket: "revents-ef039.appspot.com",
   messagingSenderId: "326044135172",
   appId: "1:326044135172:web:7183c080e7ca732f"
 };
