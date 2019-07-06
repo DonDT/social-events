@@ -1,7 +1,13 @@
 import React from "react";
 import { Grid, Segment, Header, Icon, List, Item } from "semantic-ui-react";
+import format from "date-fns/format";
 
 const UserDetailedDescription = ({ profile }) => {
+  let createdAt;
+  if (profile.createdAt) {
+    createdAt = format(profile.createdAt.toDate(), "D MMM YYYY");
+  }
+
   return (
     <Grid.Column width={12}>
       <Segment>
@@ -14,9 +20,9 @@ const UserDetailedDescription = ({ profile }) => {
             <p>
               Originally from <strong>{profile.origin || "tbn"}</strong>
             </p>
-            {/* <p>
+            <p>
               Member Since: <strong>{createdAt}</strong>
-            </p> */}
+            </p>
             <p>{profile.description}</p>
           </Grid.Column>
           <Grid.Column width={6}>
