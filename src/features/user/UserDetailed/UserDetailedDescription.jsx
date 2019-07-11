@@ -5,7 +5,7 @@ import format from "date-fns/format";
 const UserDetailedDescription = ({ profile }) => {
   let createdAt;
   if (profile.createdAt) {
-    createdAt = format(profile.createdAt.toDate(), "D MMM YYYY");
+    createdAt = format(profile.createdAt.toDate(), "dd LLL yyyy");
   }
 
   return (

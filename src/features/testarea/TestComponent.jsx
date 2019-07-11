@@ -4,7 +4,6 @@ import { incrementAsync, decrementAsync } from "./testActions";
 import { Button } from "semantic-ui-react";
 import TestPlaceInput from "./TestPlaceInput/TestPlaceInput";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-
 import SimpleMap from "./SimpleMap";
 import { openModal } from "../modals/modalsActions";
 

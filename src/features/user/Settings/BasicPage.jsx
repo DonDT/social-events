@@ -46,6 +46,7 @@ class BasicPage extends Component {
             component={DateInput}
             placeholder="Date of Birth"
             dateFormat="dd LLL yyyy"
+            //dateFormat="yyyy-MM-dd"
             showYearDropdown={true}
             showMonthDropdown={true}
             dropdownMode="select"
@@ -72,7 +73,7 @@ class BasicPage extends Component {
   }
 }
 
-//, enableReinitialize: true. This cause some props with date. It was within /////the redux form as a parameter. It ensures that when the form is reloaded, the data that belongs to the user are populated in the filed
+//, enableReinitialize: true. This cause some probs with date. It was within /////the redux form as a parameter. It ensures when the form is reloaded, the data that belongs to the user are populated in the filed
 
 export default reduxForm({
   form: "userProfile",

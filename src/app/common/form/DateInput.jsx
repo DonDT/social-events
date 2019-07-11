@@ -5,9 +5,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const DateInput = ({
   input: { value, onChange, onBlur },
-  input,
   width,
   placeholder,
+
   meta: { touched, error },
   ...rest
 }) => {

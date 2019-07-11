@@ -12,7 +12,7 @@ import {
   hasLengthGreaterThan
 } from "revalidate";
 import { createEvent, updateEvent } from "../eventActions";
-import cuid from "cuid";
+//import cuid from "cuid";
 import TextInput from "../../../app/common/form/TextInput";
 import TextArea from "../../../app/common/form/TextArea";
 import SelectInput from "../../../app/common/form/SelectInput";
@@ -63,20 +63,24 @@ class EventForm extends Component {
     cityLatLng: {},
     venueLatLng: {}
   };
-  onFormSubmit = values => {
+  onFormSubmit = async values => {
     values.venueLatLng = this.state.venueLatLng;
-    if (this.props.initialValues.id) {
-      this.props.updateEvent(values);
-      this.props.history.push(`/events/${this.props.initialValues.id}`);
-    } else {
-      const newEvent = {
-        ...values,
-        id: cuid(),
-        hostPhotoURL: "/assets/user.png",
-        hostedBy: "Bodd"
-      };
-      this.props.createEvent(newEvent);
-      this.props.history.push(`/events/${newEvent.id}`);
+    try {
+      if (this.props.initialValues.id) {
+        this.props.updateEvent(values);
+        this.props.history.push(`/events/${this.props.initialValues.id}`);
+      } else {
+        // const newEvent = {
+        //   ...values,
+        //   id: cuid(),
+        //   hostPhotoURL: "/assets/user.png",
+        //   hostedBy: "Bodd"
+        // };
+        let createdEvent = this.props.createEvent(values);
+        this.props.history.push(`/events/${createdEvent.id}`);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -158,10 +162,11 @@ class EventForm extends Component {
               <Field
                 name="date"
                 component={DateInput}
-                //dateFormat="yyyy-MM-dd"
                 dateFormat="dd LLL yyyy h:mm a"
+                //dateFormat="yyyy LLL dd"
+                //dateFormat="MMMM d, yyyy h:mm aa"
                 showTimeSelect
-                timeFormat="HH:mm"
+                timeFormat="hh:mm"
                 placeholder="Event date"
               />
 

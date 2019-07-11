@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Segment, Item, Header } from "semantic-ui-react";
-import differenceInYears from "date-fns/difference_in_years";
+import differenceInYears from "date-fns/differenceInYears";
 
 //"date-fns": "^2.0.0-alpha.27",
 
